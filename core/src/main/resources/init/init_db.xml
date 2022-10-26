@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog">
+
+    <changeSet id="1666793197495-1" author="Dima (generated)">
+        <createTable tableName="address">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="address_pkey"/>
+            </column>
+            <column name="contact_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="index" type="INTEGER"/>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="building" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flat" type="VARCHAR(32)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1666793197495-2" author="Dima (generated)">
+        <createTable tableName="contact">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="contact_pkey"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(128)"/>
+            <column name="profile_link" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1666793197495-3" author="Dima (generated)">
+        <createTable tableName="person_data">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="person_data_pkey"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_dt" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="SMALLINT"/>
+            <column name="sex" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="medical_card_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1666793197495-4" author="Dima (generated)">
+        <createView fullDefinition="false" viewName="view_illness_medical_card">SELECT address.contact_id,
+            address.city,
+            address.index,
+            contact.id,
+            contact.phone_number,
+            contact.email
+            FROM (address JOIN contact ON ((address.contact_id = contact.id)));
+        </createView>
+    </changeSet>
+    <changeSet id="1666793197495-5" author="Dima (generated)">
+        <addUniqueConstraint columnNames="medical_card_id" constraintName="person_data_medical_card_id_key"
+                             tableName="person_data"/>
+    </changeSet>
+    <changeSet id="1666793197495-6" author="Dima (generated)">
+        <createTable tableName="illnes">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="illnes_pkey"/>
+            </column>
+            <column name="medical_card_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" type="BIGINT"/>
+            <column name="heaviness" type="CHAR(1)"/>
+            <column name="appearance_dttm" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recovery_dt" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1666793197495-7" author="Dima (generated)">
+        <createTable tableName="medical_card">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="medical_card_pkey"/>
+            </column>
+            <column name="client_status" type="VARCHAR"/>
+            <column name="med_status" type="VARCHAR"/>
+            <column name="registry_dt" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1666793197495-8" author="Dima (generated)">
+        <addForeignKeyConstraint baseColumnNames="contact_id" baseTableName="address"
+                                 constraintName="address_contact_id_fkey" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="contact"/>
+    </changeSet>
+    <changeSet id="1666793197495-9" author="Dima (generated)">
+        <addForeignKeyConstraint baseColumnNames="medical_card_id" baseTableName="illnes"
+                                 constraintName="illnes_medical_card_id_fkey" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="medical_card"/>
+    </changeSet>
+    <changeSet id="1666793197495-10" author="Dima (generated)">
+        <addForeignKeyConstraint baseColumnNames="contact_id" baseTableName="person_data"
+                                 constraintName="person_data_contact_id_fkey" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="contact"/>
+    </changeSet>
+    <changeSet id="1666793197495-11" author="Dima (generated)">
+        <addForeignKeyConstraint baseColumnNames="medical_card_id" baseTableName="person_data"
+                                 constraintName="person_data_medical_card_id_fkey" onDelete="NO ACTION"
+                                 onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="medical_card"/>
+    </changeSet>
+    <changeSet id="1666793197495-12" author="Dima (generated)">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="person_data"
+                                 constraintName="person_data_parent_id_fkey" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="person_data"/>
+    </changeSet>
+
+</databaseChangeLog>
