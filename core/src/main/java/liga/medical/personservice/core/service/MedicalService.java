@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class MedicalService {
 
-    private MedicalMapper medicalMapper;
+    private final MedicalMapper medicalMapper;
 
     public MedicalService(MedicalMapper medicalMapper) {
         this.medicalMapper = medicalMapper;
@@ -18,4 +18,6 @@ public class MedicalService {
     public List<MedicalCard> getMedicalCard() {
         return medicalMapper.getListMedicalCard();
     }
+
+    public Integer addMedicalCard(MedicalCard medicalCard) { return medicalMapper.addMedicalCard(medicalCard);}
 }

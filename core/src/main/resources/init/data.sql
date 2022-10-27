@@ -12,12 +12,12 @@ insert into contact(id, phone_number, email, profile_link) values (3, '+79065554
 insert into contact(id, phone_number, email, profile_link) values (4, '+79065554678', 'email@yandex.ru', 'https://profile_link.com');
 insert into contact(id, phone_number, email, profile_link) values (5, '+79065554678', 'email@yandex.ru', 'https://profile_link.com');
 
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (0, 0, 0, 'b', '2022-10-21 10:37:22', '2022-10-20');
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (1, 1, 1, 'b', '2022-10-21 10:37:22', '2022-10-20');
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (2, 2, 2, 'b', '2022-10-21 10:37:22', '2022-10-20');
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (3, 3, 3, 'b', '2022-10-21 10:37:22', '2022-10-20');
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (4, 4, 4, 'b', '2022-10-21 10:37:22', '2022-10-20');
-insert into illnes(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (5, 5, 5, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (0, 0, 0, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (1, 1, 1, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (2, 2, 2, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (3, 3, 3, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (4, 4, 4, 'b', '2022-10-21 10:37:22', '2022-10-20');
+insert into illness(id, medical_card_id, type_id, heaviness, appearance_dttm, recovery_dt) values (5, 5, 5, 'b', '2022-10-21 10:37:22', '2022-10-20');
 
 insert into address(id, contact_id, country_id, city, index, street, building, flat) VALUES (0, 0, 0, 'Moscow', 352, 'Pushkina', '25B', 'f');
 insert into address(id, contact_id, country_id, city, index, street, building, flat) VALUES (1, 1, 1, 'Moscow', 352, 'Pushkina', '25B', 'f');

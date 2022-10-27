@@ -28,7 +28,7 @@ create table if not exists person_data
     parent_id bigint check (parent_id <> id) references person_data(id)
 );
 
-create table if not exists illnes
+create table if not exists illness
 (
     id bigint not null primary key,
     medical_card_id bigint not null references medical_card(id),
