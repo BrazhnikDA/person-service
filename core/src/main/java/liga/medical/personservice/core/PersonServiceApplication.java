@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.sql.SQLException;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"liga.medical.personservice", "liga.medical.common.service"})
+@ComponentScan(basePackages = {"liga.medical.personservice", "liga.medical.commonmodule.core"})
 public class PersonServiceApplication {
     public static void main(String[] args) throws SQLException {
         SpringApplication.run(PersonServiceApplication.class, args);
