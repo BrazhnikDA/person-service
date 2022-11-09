@@ -52,7 +52,9 @@ create table if not exists address
 
 create table if not exists signals
 (
-  id bigint not null primary key,
-  person_data_id bigint not null references person_data(id),
-  description varchar(255) not null
+    id bigint not null primary key,
+    person_data_id bigint not null references person_data(id),
+    description varchar(255) not null,
+    type varchar(255) not null
 );
+

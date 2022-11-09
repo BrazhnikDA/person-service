@@ -14,10 +14,11 @@ public interface SignalsMapper {
             "id, " +
             "person_data_id as personDataID, " +
             "description as description, " +
+            "type as type, " +
             "FROM signals;")
     List<SignalsData> getListSignals();
 
-    @Insert("INSERT INTO contact (id, person_data_id, description) " +
-            "VALUES (#{id}, #{personDataID}, #{description}")
+    @Insert("INSERT INTO signals (id, person_data_id, description, type) " +
+            "VALUES (#{id}, #{personDataId}, #{description, jdbcType=VARCHAR}, #{type, jdbcType=VARCHAR});")
     int addSignal(SignalsData signalsData);
 }

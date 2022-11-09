@@ -2,8 +2,8 @@ package liga.medical.personservice.core.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import liga.medical.dto.RabbitMessageDto;
 import liga.medical.personservice.core.api.MessageSenderService;
+import liga.medical.personservice.core.dto.RabbitMessageDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;

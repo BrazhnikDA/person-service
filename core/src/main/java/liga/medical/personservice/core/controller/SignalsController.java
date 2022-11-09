@@ -16,12 +16,12 @@ public class SignalsController {
     }
 
     @GetMapping
-    public List<SignalsData> getAllPersonData() {
+    public List<SignalsData> getAllSignals() {
         return signalsService.getSignalsData();
     }
 
     @PostMapping
-    public Integer insertPersonData(@RequestBody SignalsData signalsData) {
+    public Integer insertSignal(@RequestBody SignalsData signalsData) {
         return signalsService.addSignal(signalsData);
     }
 }

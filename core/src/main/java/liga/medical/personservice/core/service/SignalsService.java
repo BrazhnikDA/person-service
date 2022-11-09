@@ -19,6 +19,8 @@ public class SignalsService {
     }
 
     public int addSignal(SignalsData signalsData) {
-        return signalsMapper.addSignal(signalsData);
+        int a = signalsMapper.addSignal(signalsData);
+        System.out.println(a);
+        return a;
     }
 }
