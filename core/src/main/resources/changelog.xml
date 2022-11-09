@@ -10,4 +10,6 @@
     <include file="version_0.1/roles/schema.sql"/>
     <include file="version_0.1/roles/data.sql"/>
 
+    <include file="version_0.1/signals/schema.sql"/>
+
 </databaseChangeLog>

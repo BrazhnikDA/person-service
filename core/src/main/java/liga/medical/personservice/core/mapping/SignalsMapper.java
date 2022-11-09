@@ -14,7 +14,7 @@ public interface SignalsMapper {
             "id, " +
             "person_data_id as personDataID, " +
             "description as description, " +
-            "type as type, " +
+            "type as type " +
             "FROM signals;")
     List<SignalsData> getListSignals();
 

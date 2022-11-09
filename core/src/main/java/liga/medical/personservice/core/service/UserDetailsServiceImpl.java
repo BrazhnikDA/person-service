@@ -2,6 +2,7 @@ package liga.medical.personservice.core.service;
 
 import liga.medical.personservice.core.config.SecurityUser;
 import liga.medical.personservice.core.mapping.UserMapper;
+import liga.medical.personservice.core.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,7 +18,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return SecurityUser.fromUser(userMapper.getUserByUsername(username));
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+        User user = userMapper.getUserByUsername(login);
+        if (user == null)
+            throw new UsernameNotFoundException("Error: User not found");
+        return SecurityUser.fromUser(user);
     }
 }

@@ -1,5 +1,6 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.dto.annotations.DbLog;
 import liga.medical.personservice.core.model.MedicalCard;
 import liga.medical.personservice.core.service.MedicalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,13 @@ public class MedicalController {
     }
 
     @GetMapping
+    @DbLog
     public List<MedicalCard> getMedicalCard() {
         return medicalService.getMedicalCard();
     }
 
     @PostMapping
+    @DbLog
     public Integer addMedicalCard(@RequestBody MedicalCard medicalCard) {
         return medicalService.addMedicalCard(medicalCard);
     }

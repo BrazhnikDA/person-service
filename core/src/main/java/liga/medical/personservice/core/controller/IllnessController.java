@@ -1,5 +1,6 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.dto.annotations.DbLog;
 import liga.medical.personservice.core.model.Illness;
 import liga.medical.personservice.core.service.IllnessService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,13 @@ public class IllnessController {
     }
 
     @GetMapping
+    @DbLog
     public List<Illness> getAllIllnesses() {
         return illnessService.getIllness();
     }
 
     @PostMapping
+    @DbLog
     public Integer insertIllness(@RequestBody Illness illness) {
         return illnessService.addIllness(illness);
     }

@@ -1,5 +1,6 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.dto.annotations.DbLog;
 import liga.medical.personservice.core.model.Contact;
 import liga.medical.personservice.core.service.ContactService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,13 @@ public class ContactController {
     }
 
     @GetMapping
+    @DbLog
     public List<Contact> getAllContacts() {
         return contactService.getContacts();
     }
 
     @PostMapping
+    @DbLog
     public Integer insertContact(@RequestBody Contact contact) {
         return contactService.addContact(contact);
     }

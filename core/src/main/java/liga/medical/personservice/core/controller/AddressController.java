@@ -1,5 +1,6 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.dto.annotations.DbLog;
 import liga.medical.personservice.core.model.Address;
 import liga.medical.personservice.core.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,13 @@ public class AddressController {
     }
 
     @GetMapping
+    @DbLog
     public List<Address> getAddress() {
         return addressService.getAddress();
     }
 
     @PostMapping
+    @DbLog
     public int addAddress(@RequestBody Address address) {
         return addressService.addAddress(address);
     }
