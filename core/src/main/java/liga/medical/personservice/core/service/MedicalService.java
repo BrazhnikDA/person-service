@@ -19,5 +19,7 @@ public class MedicalService {
         return medicalMapper.getListMedicalCard();
     }
 
-    public Integer addMedicalCard(MedicalCard medicalCard) { return medicalMapper.addMedicalCard(medicalCard);}
+    public Integer addMedicalCard(MedicalCard medicalCard) {
+        return medicalMapper.addMedicalCard(medicalCard);
+    }
 }

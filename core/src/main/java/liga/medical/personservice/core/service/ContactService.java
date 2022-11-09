@@ -15,7 +15,6 @@ public class ContactService {
         this.contactMapper = contactMapper;
     }
 
-
     public List<Contact> getContacts() {
         return contactMapper.getListContacts();
     }

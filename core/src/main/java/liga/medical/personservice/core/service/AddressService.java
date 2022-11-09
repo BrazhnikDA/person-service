@@ -14,6 +14,7 @@ public class AddressService {
     public AddressService(AddressMapper addressMapper) {
         this.addressMapper = addressMapper;
     }
+
     public List<Address> getAddress() {
         return addressMapper.getListAddress();
     }
